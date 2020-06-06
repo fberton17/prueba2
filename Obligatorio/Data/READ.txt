@@ -1,0 +1,1 @@
+Aquí van los archivos csv, por el momento están siendo ignorados por gitignore
