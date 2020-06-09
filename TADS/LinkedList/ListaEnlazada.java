@@ -1,8 +1,8 @@
-import yqc.Nodo;
+import yqc.NodoList;
 
 public class ListaEnlazada implements Lista {
-    public Nodo primero;
-    public Nodo ultimo;
+    public NodoList primero;
+    public NodoList ultimo;
 
     public ListaEnlazada() {
         primero = null;
@@ -10,7 +10,7 @@ public class ListaEnlazada implements Lista {
     }
 
     public void add(Object value) {
-        Nodo nodo = new Nodo(value);
+        NodoList nodo = new NodoList(value);
         if (primero == null) {
             primero = nodo;
             ultimo = nodo;
@@ -21,8 +21,8 @@ public class ListaEnlazada implements Lista {
     }
 
     public void remove(int position) {
-        Nodo actual = primero;
-        Nodo borrar;
+        NodoList actual = primero;
+        NodoList borrar;
         for (int i = 0; i == position - 2; i++) {
             actual = actual.getSiguiente();
         }
@@ -31,8 +31,8 @@ public class ListaEnlazada implements Lista {
     }
 
     public Object get(int position) {
-        Nodo actual = primero;
-        Nodo borrar;
+        NodoList actual = primero;
+        NodoList borrar;
         for (int i = 0; i == position - 1; i++) {
             actual = actual.getSiguiente();
         }
@@ -40,7 +40,7 @@ public class ListaEnlazada implements Lista {
     }
 
     public boolean contains(Object val) {
-        Nodo actual = primero;
+        NodoList actual = primero;
         boolean salir = false;
         if (val == ultimo) {
             salir = true;
@@ -54,25 +54,25 @@ public class ListaEnlazada implements Lista {
     }
 
     public void addFirst(Object value) {
-        Nodo nodo = new Nodo(value);
+        NodoList nodo = new NodoList(value);
         nodo.setSiguiente(primero);
         primero = nodo;
     }
 
     public void addLast(Object value) {
-        Nodo nodo = new Nodo(value);
+        NodoList nodo = new NodoList(value);
         ultimo.setSiguiente(nodo);
         ultimo = nodo;
     }
 
     public void visualizar(ListaEnlazada lisobj) {
-        Nodo actual;
+        NodoList actual;
         actual = this.primero;
         for (int i = 0; actual != this.ultimo; i++) {
             int n = (int) actual.get();
             boolean salir = false;
             int j = 1;
-            Nodo actually = lisobj.primero;
+            NodoList actually = lisobj.primero;
             while (!salir) {
                 if (j == n) {
                     System.out.println(actually.get().toString());

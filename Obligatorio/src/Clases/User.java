@@ -1,3 +1,5 @@
+package Clases;
+
 public class User {
     private long user_id;
     private Rating[] ratings;

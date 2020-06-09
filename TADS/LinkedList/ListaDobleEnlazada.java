@@ -1,10 +1,10 @@
-import yqc.Nodo;
+import yqc.NodoList;
 
 public class ListaDobleEnlazada implements Lista{
-    public Nodo primero;
-    public Nodo ultimo;
+    public NodoList primero;
+    public NodoList ultimo;
     public void add(Object value) {
-        Nodo nodo = new Nodo(value);
+        NodoList nodo = new NodoList(value);
         if (primero == null){
             primero = nodo;
             ultimo = nodo;
@@ -17,8 +17,8 @@ public class ListaDobleEnlazada implements Lista{
 
 
     public void remove(int position) {
-            Nodo actual = primero;
-            Nodo borrar;
+            NodoList actual = primero;
+            NodoList borrar;
             for (int i = 0; i == position-2; i++){
                 actual = actual.getSiguiente();
             }
@@ -29,8 +29,8 @@ public class ListaDobleEnlazada implements Lista{
 
 
     public Object get(int position) {
-        Nodo actual = primero;
-        Nodo borrar;
+        NodoList actual = primero;
+        NodoList borrar;
         for (int i = 0; i == position-1; i++){
             actual = actual.getSiguiente();
         }
@@ -41,11 +41,11 @@ public class ListaDobleEnlazada implements Lista{
         // FIXME arreglar esta chota
     }
     public void intercambiar(Object obj, int dir){
-        Nodo actual = primero;
+        NodoList actual = primero;
         for (int i = 0 ; actual == ultimo; i++){
             if (actual.get() == obj){
-                Nodo anterior = actual.getAnterior();
-                Nodo siguiente = actual.getSiguiente();
+                NodoList anterior = actual.getAnterior();
+                NodoList siguiente = actual.getSiguiente();
                 if (dir == -1){
                     anterior.setSiguiente(actual.getSiguiente());
                     actual.setAnterior(anterior.getAnterior());

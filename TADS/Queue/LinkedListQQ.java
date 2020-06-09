@@ -1,6 +1,6 @@
 public class LinkedListQQ<T> implements MyQueue<T>, MyDoubleQueue<T>{
-    public Nodo<T> primero;
-    public Nodo<T> ultimo;
+    public NodoQueue<T> primero;
+    public NodoQueue<T> ultimo;
 
     public LinkedListQQ(){
         primero = null;
@@ -8,7 +8,7 @@ public class LinkedListQQ<T> implements MyQueue<T>, MyDoubleQueue<T>{
     }
 
     public void enqueue(T element) {
-        Nodo<T> nodo = new Nodo(element);
+        NodoQueue<T> nodo = new NodoQueue(element);
         if(primero == null || ultimo == null) {
             primero = nodo;
             ultimo = nodo;
@@ -38,7 +38,7 @@ public class LinkedListQQ<T> implements MyQueue<T>, MyDoubleQueue<T>{
     public T dequeueLeft() throws EmptyQueueException {
         boolean salir = false;
         T retorno = null;
-        Nodo actual = primero;
+        NodoQueue actual = primero;
         while(!salir){
             if (actual.getSiguiente() == ultimo){
                 retorno = ultimo.get();
@@ -57,7 +57,7 @@ public class LinkedListQQ<T> implements MyQueue<T>, MyDoubleQueue<T>{
 
     @Override
     public void enqueueRight(T element) {
-        Nodo<T> nodo = new Nodo(element);
+        NodoQueue<T> nodo = new NodoQueue(element);
         nodo.setSiguiente(primero);
         primero = nodo;
     }

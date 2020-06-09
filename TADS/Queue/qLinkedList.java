@@ -1,6 +1,6 @@
 public class qLinkedList<T> implements PriorityQueue<T> {
-    public Nodo<T> primero;
-    public Nodo<T> ultimo;
+    public NodoQueue<T> primero;
+    public NodoQueue<T> ultimo;
 
     public qLinkedList(){
         primero = null;
@@ -8,7 +8,7 @@ public class qLinkedList<T> implements PriorityQueue<T> {
     }
 
     public void enqueueWithPriority(T element, int prioridad) {
-        Nodo<T> nodo = new Nodo<>(element);
+        NodoQueue<T> nodo = new NodoQueue<>(element);
         nodo.setPrioridad(prioridad);
         if(primero==null || ultimo==null){
             primero = nodo;
@@ -22,8 +22,8 @@ public class qLinkedList<T> implements PriorityQueue<T> {
             primero = nodo;
         }
         else{
-            Nodo actual = ultimo;
-            Nodo prox;
+            NodoQueue actual = ultimo;
+            NodoQueue prox;
             while(nodo.getPrioridad() > actual.getPrioridad()){
                 actual = actual.getSiguiente();
             }
@@ -46,7 +46,7 @@ public class qLinkedList<T> implements PriorityQueue<T> {
             primero = null;
             return retorno;
         }
-        Nodo actual = ultimo;
+        NodoQueue actual = ultimo;
         while(actual.getSiguiente() != primero){
             actual = actual.getSiguiente();
         }

@@ -6,7 +6,7 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) {
-        // CARGA DE DATOS - INICIO **************************
+        // CARGA DE DATOS - INICIO *************************************************************************************
         try {
             String archCSV = "Data/books.csv";
             CSVReader csvReader = new CSVReader(new FileReader(archCSV));
@@ -37,6 +37,10 @@ public class Main {
         } catch (Exception e) {
             System.out.println(e);
         }
+        //FIXME falta agregar datos a tads, sin printearlos
+// FINALIZA CARGA DE DATOS**********************************************************************************************
+
+// FIXME menú aquí abajo ===============================================================================================
 
 
     }
