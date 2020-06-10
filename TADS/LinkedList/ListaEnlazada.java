@@ -85,20 +85,5 @@ public class ListaEnlazada implements Lista {
         }
     }
 
-    public static void main(String[] args){
-        ListaEnlazada listaI = new ListaEnlazada();
-        listaI.add(1);
-        listaI.add(2);
-        listaI.add(3);
-        listaI.add(5);
-        listaI.visualizar(listaI);
-        ListaEnlazada listaO = new ListaEnlazada();
-        listaO.add('A');
-        listaO.add('b');
-        listaO.add('c');
-        listaO.add('d');
-        listaO.add('e');
-        listaI.visualizar(listaO);
-    }
 }
 
