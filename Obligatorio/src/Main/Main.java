@@ -53,6 +53,8 @@ public class Main {
         if (entrada == 1){
             // CARGA DE DATOS - INICIO *************************************************************************************
             try {
+                long start = 0, stop = 0;
+                start = System.currentTimeMillis();
                 String archCSV = "Obligatorio/Data/books.csv";
                 CSVReader csvReader = new CSVReader(new FileReader(archCSV));
                 String[] fila = null;
@@ -77,6 +79,10 @@ public class Main {
                 }
                 csvReader3.close();
                 csvReader3 = null;
+
+                stop = System.currentTimeMillis();
+
+                System.out.println("tiempo de carga de datos: " + (stop - start) + "ms");
 
 
             } catch (Exception e) {
