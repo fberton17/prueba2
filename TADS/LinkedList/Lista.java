@@ -1,3 +1,5 @@
+package LinkedList;
+
 public interface Lista {
     public void add(Object value);
     public void remove(int position);

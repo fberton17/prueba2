@@ -1,3 +1,5 @@
+package LinkedList;
+
 import yqc.NodoList;
 
 public class ListaDobleEnlazada implements Lista{

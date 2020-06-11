@@ -1,6 +1,8 @@
+package LinkedList;
+
 import yqc.NodoList;
 
-public class ListaEnlazada implements Lista {
+public class ListaEnlazada implements Lista{
     public NodoList primero;
     public NodoList ultimo;
 
@@ -36,7 +38,7 @@ public class ListaEnlazada implements Lista {
         for (int i = 0; i == position - 1; i++) {
             actual = actual.getSiguiente();
         }
-        return actual;
+        return actual.get();
     }
 
     public boolean contains(Object val) {
