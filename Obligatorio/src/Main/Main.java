@@ -60,13 +60,19 @@ public class Main {
                 int book_id;
                 User[] users_array = new User[53425];
                 Book libro;
+                User usuario;
                 while ((fila = csvReader3.readNext()) != null) { //FIXME NO AGREGA TODOS LOS USUARIOS
                     id = Long.parseLong(fila[0]);
                     book_id = (Integer.parseInt(fila[1]) ) - 1;
-                    User usuario = new User(id);
+                    if(users_array[((int)id)-1] == null) {
+                        usuario = new User(id);
+                        users_array[((int)id) -1] = usuario;
+                    }else{
+                        usuario= users_array[((int)id)-1];
+                    }
                     libro = books_array[book_id];
                     usuario.addRead(libro);
-                    users_array[((int)id) -1] = usuario;
+
                 }
                 csvReader3.close();
                 csvReader3 = null;
@@ -78,15 +84,18 @@ public class Main {
 
                 int rate;
                 int user_id;
-                User usuario;
                 while ((fila = csvReader2.readNext()) != null) {
-                    System.out.println(fila[0] + " | " + fila[1]  + " |  " + fila[2]);
                     user_id = Integer.parseInt(fila[0]) - 1;
                     book_id = Integer.parseInt(fila[1]) - 1;
                     rate = Integer.parseInt(fila[2]);
 
                     libro = books_array[book_id];
-                    usuario = users_array[user_id];
+                    if(users_array[user_id] == null){          // Consideramos caso en el que un user no esté en to_read
+                        usuario = new User((long)(user_id + 1));
+                        users_array[user_id] = usuario;
+                    }else{
+                        usuario = users_array[user_id];
+                    }
                     Rating rating = new Rating(rate,libro);
                     usuario.addRating(rating);
                 }
