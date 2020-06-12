@@ -1,3 +1,5 @@
+package Heap;
+
 public interface MinHeap<T> {
     void insertm(T value) throws HeapSizeOverflow;
 

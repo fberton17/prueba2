@@ -28,4 +28,8 @@ public class Book {
     public void addAuthor(Author autor){
         authors.add(autor);
     }
+
+    public long getBook_id() {
+        return book_id;
+    }
 }

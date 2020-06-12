@@ -1,3 +1,5 @@
+package Heap;
+
 public class HeapImpl<T extends Comparable<T>>implements MaxHeap<T> , MinHeap<T>{
     private T[] values;
 
@@ -10,22 +12,42 @@ public class HeapImpl<T extends Comparable<T>>implements MaxHeap<T> , MinHeap<T>
 
     @Override
     public void insert(T value) throws HeapSizeOverflow {
-        if (pointerLastValue == values.length) {
+        if(value != null) {
+            /*if (pointerLastValue == values.length) {
 
-            throw new HeapSizeOverflow();
-        }
+                throw new HeapSizeOverflow();
+            }
 
-        this.values[pointerLastValue] = value;
-        int valuePosition = pointerLastValue;
-        pointerLastValue++;
+            this.values[pointerLastValue] = value;
+            int valuePosition = pointerLastValue;
+            pointerLastValue++;
 
-        while (valuePosition != 0 && value.compareTo(getFather(valuePosition)) > 0) {
-            T tempValue = getFather(valuePosition);
+            while (valuePosition != 0 && value.compareTo(getFather(valuePosition)) > 0) {
+                T tempValue = getFather(valuePosition);
 
-            this.values[getFatherPosition(valuePosition)] = value;
-            this.values[valuePosition] = tempValue;
+                this.values[getFatherPosition(valuePosition)] = value;
+                this.values[valuePosition] = tempValue;
 
-            valuePosition = getFatherPosition(valuePosition);
+                valuePosition = getFatherPosition(valuePosition);
+            }
+        }*/
+            if (pointerLastValue == values.length) {
+
+                throw new HeapSizeOverflow();
+            }
+
+            this.values[pointerLastValue] = value;
+            int valuePosition = pointerLastValue;
+            pointerLastValue++;
+
+            while (valuePosition != 0 && value.compareTo(getFather(valuePosition)) > 0) {
+                T tempValue = getFather(valuePosition);
+
+                this.values[getFatherPosition(valuePosition)] = value;
+                this.values[valuePosition] = tempValue;
+
+                valuePosition = getFatherPosition(valuePosition);
+            }
         }
     }
 

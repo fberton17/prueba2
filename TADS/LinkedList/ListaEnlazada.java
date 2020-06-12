@@ -33,12 +33,17 @@ public class ListaEnlazada implements Lista{
     }
 
     public Object get(int position) {
-        NodoList actual = primero;
-        NodoList borrar;
-        for (int i = 0; i == position - 1; i++) {
-            actual = actual.getSiguiente();
+        if(primero != null) {
+            NodoList actual = primero;
+            NodoList borrar;
+            for (int i = 0; i != position; i++) {
+                if (actual.getSiguiente() != null){
+                    actual = actual.getSiguiente();
+                }else {return null;}
+            }
+            return actual.get();
         }
-        return actual.get();
+        return null;
     }
 
     public boolean contains(Object val) {

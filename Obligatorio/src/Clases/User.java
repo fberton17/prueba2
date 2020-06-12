@@ -21,4 +21,8 @@ public class User {
     public void addRating(Rating rating){
         this.ratings.add(rating);
     }
+
+    public Lista getReserverd_to_read() {
+        return this.reserverd_to_read;
+    }
 }
