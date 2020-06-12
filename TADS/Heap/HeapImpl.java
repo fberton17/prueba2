@@ -71,23 +71,30 @@ public class HeapImpl<T extends Comparable<T>>implements MaxHeap<T> , MinHeap<T>
         T value = this.values[valuePosition];
         T left = this.values[getLeftChildPosition(valuePosition)];
         T rigth = this.values[getRigthChildPosition(valuePosition)];
-        T aux;
 
-        while(value.compareTo(left) < 0 || value.compareTo(rigth) < 0){
+
+        while(value.compareTo(left) < 0 || value.compareTo(rigth) < 0
+                && getLeftChildPosition(valuePosition) < pointerLastValue && getRigthChildPosition(valuePosition) < pointerLastValue){
+
             if (left.compareTo(rigth) > 0 ){
-
+                try{
               this.values[valuePosition] = left;
               this.values[getLeftChildPosition(valuePosition)] = value;
-              valuePosition = getLeftChildPosition(valuePosition);
+              valuePosition = getLeftChildPosition(valuePosition);} catch (ArrayIndexOutOfBoundsException f){
+                }
             }else{
-
+                try{
                 this.values[valuePosition] = rigth;
                 this.values[getRigthChildPosition(valuePosition)] = value;
                 valuePosition = getRigthChildPosition(valuePosition);
+                } catch (ArrayIndexOutOfBoundsException f){
+                }
             }
-            value = this.values[valuePosition];
+           try{ value = this.values[valuePosition];
             left = this.values[getLeftChildPosition(valuePosition)];
             rigth = this.values[getRigthChildPosition(valuePosition)];
+           } catch (ArrayIndexOutOfBoundsException f){
+           }
         }
 
     }
@@ -143,6 +150,11 @@ public class HeapImpl<T extends Comparable<T>>implements MaxHeap<T> , MinHeap<T>
         T aux;
 
         while(value.compareTo(left) > 0 || value.compareTo(rigth) > 0){
+            if (values[getRigthChildPosition(valuePosition)].compareTo(values[getLeftChildPosition(valuePosition)]) > 0){
+
+            }
+
+
             if (left.compareTo(rigth) < 0 ){
 
                 this.values[valuePosition] = left;

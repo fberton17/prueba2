@@ -55,7 +55,7 @@ public class Consulta1 implements Comparable{
     public int compareTo(Object o) {
         if(o instanceof Consulta1){
             return this.cantidad - ((Consulta1) o).cantidad;
-        }else{return -1;}
+        } else{return -1;}
 
     }
 }
