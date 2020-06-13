@@ -30,6 +30,9 @@ public class Book {
     }
 
     public long getBook_id() {
-        return book_id;
+        return this.book_id;
+    }
+    public String getTitle() {
+        return this.title;
     }
 }

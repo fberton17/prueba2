@@ -20,6 +20,8 @@ public class Consulta1 implements Comparable{
     }
 
     public static void startConsulta1(Book[] books_array, User[] users_array) throws HeapSizeOverflow {
+        long start = 0, stop = 0;
+        start = System.currentTimeMillis();
         Consulta1[] array_con1 = new Consulta1[10001];
         Book libro;
         Lista lista;
@@ -43,10 +45,16 @@ public class Consulta1 implements Comparable{
         for(Consulta1 dato : array_con1){
             heap.insert(dato);
         }
-        for(int e = 0 ; e <= 7; e++){
-            System.out.println(heap.getMax());
+        Consulta1 top;
+        for(int e = 0 ; e <= 7; e++){ // FIXME ORDENAR LOS LIBROS
+            top = heap.getMax();
+            System.out.println(" Id del libo:" + top.book.getBook_id() +
+            "\n Título:" + top.book.getTitle() +
+            "\n Cantidad:" + top.cantidad +"\n");
             heap.deleteMax();
         }
+        stop = System.currentTimeMillis();
+        System.out.println("Tiempo de ejecución deconsulta: " + (stop - start) +"ms" );
 
 
     }
