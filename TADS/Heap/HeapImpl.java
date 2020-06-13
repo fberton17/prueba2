@@ -72,14 +72,14 @@ public class HeapImpl<T extends Comparable<T>>implements MaxHeap<T> , MinHeap<T>
         T left = this.values[getLeftChildPosition(valuePosition)];
         T rigth = this.values[getRigthChildPosition(valuePosition)];
 
-        boolean lugarEncontrado = false;
+        //boolean lugarEncontrado = false;
        // while (!lugarEncontrado) {
             // ambos hijos estan por fuera o son null -> lugarEncontrado = true
             // ambos hijos son mas grandes
 
             // estas parado en Value
             //if (getRigthChildPosition(valuePosition))
-        }
+       // }
 
         while((value.compareTo(left) < 0 || value.compareTo(rigth) < 0)
                 && getLeftChildPosition(valuePosition) < pointerLastValue && getRigthChildPosition(valuePosition) < pointerLastValue){
