@@ -46,7 +46,7 @@ public class Consulta1 implements Comparable{
             heap.insert(dato);
         }
         Consulta1 top;
-        for(int e = 0 ; e <= 7; e++){ // FIXME ORDENAR LOS LIBROS
+        for(int e = 0 ; e <= 9; e++){ // FIXME ORDENAR LOS LIBROS
             top = heap.getMax();
             System.out.println(" Id del libo:" + top.book.getBook_id() +
             "\n Título:" + top.book.getTitle() +
