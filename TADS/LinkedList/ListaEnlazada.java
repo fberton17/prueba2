@@ -46,6 +46,20 @@ public class ListaEnlazada implements Lista{
         return null;
     }
 
+    @Override
+    public int size() {
+        int i = 0;
+        if(primero != null) {
+            NodoList actual = primero;
+            i=1;
+            while (actual != ultimo) {
+                actual = actual.getSiguiente();
+                i++;
+            }
+        }
+        return i;
+    }
+
     public boolean contains(Object val) {
         NodoList actual = primero;
         boolean salir = false;

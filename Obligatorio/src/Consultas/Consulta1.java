@@ -9,8 +9,9 @@ import LinkedList.Lista;
 
 public class Consulta1 implements Comparable{
 
-    int cantidad;
-    Book book;
+    public int cantidad;
+    public Book book;
+
     private Consulta1(Book book){
         this.book = book;
         this.cantidad = 1;
@@ -46,7 +47,7 @@ public class Consulta1 implements Comparable{
             heap.insert(dato);
         }
         Consulta1 top;
-        for(int e = 0 ; e <= 9; e++){ // FIXME ORDENAR LOS LIBROS
+        for(int e = 0 ; e <= 9; e++){        // imprime en orden
             top = heap.getMax();
             System.out.println(" Id del libo:" + top.book.getBook_id() +
             "\n Título:" + top.book.getTitle() +

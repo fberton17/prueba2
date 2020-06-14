@@ -39,8 +39,21 @@ public class ListaDobleEnlazada implements Lista{
         return actual;
     }
 
+    @Override
+    public int size() {
+        int i = 0;
+        if(primero != null) {
+            NodoList actual = primero;
+            while (actual != ultimo) {
+                actual = actual.getSiguiente();
+                i++;
+            }
+        }
+        return i;
+    }
+
     public void agregar(){
-        // FIXME arreglar esta chota
+        // FIXME arreglar esto
     }
     public void intercambiar(Object obj, int dir){
         NodoList actual = primero;

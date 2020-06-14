@@ -13,6 +13,7 @@ import java.util.Scanner;
 import Consultas.Consulta1;
 
 import static Consultas.Consulta1.startConsulta1;
+import static Consultas.Consulta3.startConsulta3;
 
 public class Main {
 
@@ -139,7 +140,7 @@ public class Main {
 
                         break;
                     case 3:
-
+                        startConsulta3(users_array);
                         break;
                     case 4:
 

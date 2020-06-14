@@ -8,4 +8,8 @@ public class Rating {
         this.rating = rating;
         this.book = book;
     }
+
+    public int getRating() {
+        return rating;
+    }
 }

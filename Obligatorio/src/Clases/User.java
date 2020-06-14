@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class User {
     private long user_id;
-    private Lista ratings; //NO TIENE PQ SER UNA LISTa
+    private Lista ratings;
     private Lista reserverd_to_read;
 
     public User(long id) {
@@ -24,5 +24,13 @@ public class User {
 
     public Lista getReserverd_to_read() {
         return this.reserverd_to_read;
+    }
+
+    public Lista getRatings() {
+        return this.ratings;
+    }
+
+    public long getUser_id() {
+        return user_id;
     }
 }
