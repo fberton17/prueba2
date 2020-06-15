@@ -10,10 +10,12 @@ import java.lang.*;
 import java.io.*;
 import java.util.Scanner;
 
-import Consultas.Consulta1;
+import Consultas.*;
+
 
 import static Consultas.Consulta1.startConsulta1;
 import static Consultas.Consulta3.startConsulta3;
+
 
 public class Main {
 

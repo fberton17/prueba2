@@ -31,6 +31,22 @@ public class Consulta3 implements Comparable{
         }
     }
 
+    private static void bubbleSortcon3(Consulta3[] arr) {
+        int n = arr.length;
+        Consulta3 temp;
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j < (n - i); j++) {
+                if (arr[j - 1].average_rate < arr[j].average_rate) {
+                    //intercambiar
+                    temp = arr[j - 1];
+                    arr[j - 1] = arr[j];
+                    arr[j] = temp;
+                }
+
+            }
+        }
+    }
+
     public static void startConsulta3(User[] users_array) throws HeapSizeOverflow {
         Lista rate_list;
         Consulta3 data_consulta;
@@ -56,7 +72,8 @@ public class Consulta3 implements Comparable{
             }
             cons.average_rate = cons.average_rate/rates.size();
         }
-        // FIXME ORDENAR TOP POR RATINGS
+        // FIXME ORDENAR TOP POR RATINGS PROLIJO
+        bubbleSortcon3(top);
         for(Consulta3 consulta3 : top){
             System.out.println(" Id del usuario:" + consulta3.usuario.getUser_id() +
                 "\n Cantidad:" + consulta3.rate_count +
@@ -64,6 +81,7 @@ public class Consulta3 implements Comparable{
         }
 
     }
+
 
 
 }
