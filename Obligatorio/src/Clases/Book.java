@@ -35,4 +35,5 @@ public class Book {
     public String getTitle() {
         return this.title;
     }
+    public String getLanguage_code() { return this.language_code; }
 }

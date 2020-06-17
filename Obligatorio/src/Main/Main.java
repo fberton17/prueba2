@@ -16,6 +16,7 @@ import Consultas.*;
 import static Consultas.Consulta1.startConsulta1;
 import static Consultas.Consulta2.startConsulta2;
 import static Consultas.Consulta3.startConsulta3;
+import static Consultas.Consulta4.startConsulta4;
 
 
 public class Main {
@@ -141,11 +142,13 @@ public class Main {
                         break;
                     case 2:
                         startConsulta2(users_array);
+
                         break;
                     case 3:
                         startConsulta3(users_array);
                         break;
                     case 4:
+                        startConsulta4(books_array,users_array);
 
                         break;
                     case 5:

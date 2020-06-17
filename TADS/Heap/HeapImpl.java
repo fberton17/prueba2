@@ -64,7 +64,7 @@ public class HeapImpl<T extends Comparable<T>>implements MaxHeap<T> , MinHeap<T>
 
     @Override
     public void deleteMax() {
-        this.values[0] = values[pointerLastValue-1];
+        this.values[0] = values[pointerLastValue - 1];
         pointerLastValue--;
 
         int valuePosition = 0;
@@ -73,38 +73,40 @@ public class HeapImpl<T extends Comparable<T>>implements MaxHeap<T> , MinHeap<T>
         T rigth = this.values[getRigthChildPosition(valuePosition)];
 
         //boolean lugarEncontrado = false;
-       // while (!lugarEncontrado) {
-            // ambos hijos estan por fuera o son null -> lugarEncontrado = true
-            // ambos hijos son mas grandes
+        // while (!lugarEncontrado) {
+        // ambos hijos estan por fuera o son null -> lugarEncontrado = true
+        // ambos hijos son mas grandes
 
-            // estas parado en Value
-            //if (getRigthChildPosition(valuePosition))
-       // }
+        // estas parado en Value
+        //if (getRigthChildPosition(valuePosition))
+        //}
 
-        while((value.compareTo(left) < 0 || value.compareTo(rigth) < 0)
-                && getLeftChildPosition(valuePosition) < pointerLastValue && getRigthChildPosition(valuePosition) < pointerLastValue){
+        while ((value.compareTo(left) < 0 || value.compareTo(rigth) < 0)
+                && getLeftChildPosition(valuePosition) < pointerLastValue && getRigthChildPosition(valuePosition) < pointerLastValue) {
 
-            if (left.compareTo(rigth) > 0 ){
-                try{
-              this.values[valuePosition] = left;
-              this.values[getLeftChildPosition(valuePosition)] = value;
-              valuePosition = getLeftChildPosition(valuePosition);} catch (ArrayIndexOutOfBoundsException f){
+            if (left.compareTo(rigth) > 0) {
+                try {
+                    this.values[valuePosition] = left;
+                    this.values[getLeftChildPosition(valuePosition)] = value;
+                    valuePosition = getLeftChildPosition(valuePosition);
+                } catch (ArrayIndexOutOfBoundsException f) {
                 }
-            }else{
-                try{
-                this.values[valuePosition] = rigth;
-                this.values[getRigthChildPosition(valuePosition)] = value;
-                valuePosition = getRigthChildPosition(valuePosition);
-                } catch (ArrayIndexOutOfBoundsException f){
+            } else {
+                try {
+                    this.values[valuePosition] = rigth;
+                    this.values[getRigthChildPosition(valuePosition)] = value;
+                    valuePosition = getRigthChildPosition(valuePosition);
+                } catch (ArrayIndexOutOfBoundsException f) {
                 }
             }
-           try{ value = this.values[valuePosition];
-            left = this.values[getLeftChildPosition(valuePosition)];
-            rigth = this.values[getRigthChildPosition(valuePosition)];
-           } catch (ArrayIndexOutOfBoundsException f){
-           }
-        }
 
+            try {
+                value = this.values[valuePosition];
+                left = this.values[getLeftChildPosition(valuePosition)];
+                rigth = this.values[getRigthChildPosition(valuePosition)];
+            } catch (ArrayIndexOutOfBoundsException f) {
+            }
+        }
     }
 
 
@@ -168,7 +170,8 @@ public class HeapImpl<T extends Comparable<T>>implements MaxHeap<T> , MinHeap<T>
                 this.values[valuePosition] = left;
                 this.values[getLeftChildPosition(valuePosition)] = value;
                 valuePosition = getLeftChildPosition(valuePosition);
-            }else{
+            }
+            else{
 
                 this.values[valuePosition] = rigth;
                 this.values[getRigthChildPosition(valuePosition)] = value;
@@ -180,13 +183,11 @@ public class HeapImpl<T extends Comparable<T>>implements MaxHeap<T> , MinHeap<T>
         }
 
     }
-
-    @Override
-    public int sizem () {
+        public int sizem () {
         return pointerLastValue;
     }
 
-    private T getFather ( int childPosition){
+    private T getFather (int childPosition){
         return values[(childPosition - 1) / 2];
     }
 

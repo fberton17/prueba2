@@ -29,7 +29,8 @@ public class Consulta1 implements Comparable{
                 if(array_con1[((int)libro.getBook_id())-1] == null){
                     datoConsulta = new Consulta1(libro);
                     array_con1[((int)libro.getBook_id())-1] = datoConsulta;
-                }else{
+                }
+                else{
                     array_con1[((int)libro.getBook_id())-1].addCantidad();
                 }
                 j++;
