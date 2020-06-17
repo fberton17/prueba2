@@ -12,4 +12,8 @@ public class Rating {
     public int getRating() {
         return rating;
     }
+
+    public Book getBook() {
+        return book;
+    }
 }

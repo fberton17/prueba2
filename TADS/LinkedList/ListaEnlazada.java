@@ -5,10 +5,12 @@ import yqc.NodoList;
 public class ListaEnlazada implements Lista{
     public NodoList primero;
     public NodoList ultimo;
+    public int size;
 
     public ListaEnlazada() {
         primero = null;
         ultimo = null;
+        size = 0;
     }
 
     public void add(Object value) {
@@ -16,9 +18,11 @@ public class ListaEnlazada implements Lista{
         if (primero == null) {
             primero = nodo;
             ultimo = nodo;
+            size = 1;
         } else {
             ultimo.setSiguiente(nodo);
             ultimo = nodo;
+            size += 1;
         }
     }
 
@@ -48,16 +52,7 @@ public class ListaEnlazada implements Lista{
 
     @Override
     public int size() {
-        int i = 0;
-        if(primero != null) {
-            NodoList actual = primero;
-            i=1;
-            while (actual != ultimo) {
-                actual = actual.getSiguiente();
-                i++;
-            }
-        }
-        return i;
+        return this.size;
     }
 
     public boolean contains(Object val) {
@@ -105,6 +100,17 @@ public class ListaEnlazada implements Lista{
             actual = actual.getSiguiente();
         }
     }
+
+    public Object[] toArray(){
+        Object[] array = new Object[this.size];
+        NodoList actual = primero;
+        for (int i = 0; i != this.size; i++) {
+            array[i] = actual.get();
+            actual = actual.getSiguiente();
+        }
+        return array;
+    }
+
 
 }
 

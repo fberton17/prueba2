@@ -52,6 +52,11 @@ public class ListaDobleEnlazada implements Lista{
         return i;
     }
 
+    @Override
+    public Object[] toArray() {
+        return new Object[0];
+    }
+
     public void agregar(){
         // FIXME arreglar esto
     }

@@ -42,8 +42,9 @@ public class Consulta3 implements Comparable{
             }
             cons.average_rate = cons.average_rate/rates.size();
         }
-        // FIXME ORDENAR TOP POR RATINGS PROLIJO
+
         bubbleSortCon3(top);
+
         for(Consulta3 consulta3 : top){
             System.out.println(" Id del usuario:" + consulta3.usuario.getUser_id() +
                 "\n Cantidad:" + consulta3.rate_count +
@@ -64,7 +65,7 @@ public class Consulta3 implements Comparable{
         this.average_rate = avg;
     }
     @Override
-    public int compareTo(Object o) {
+    public int compareTo(Object o) { // FIXME ORDENAR TOP POR RATINGS PROLIJO
         if(o instanceof Consulta3){
             return this.rate_count - ((Consulta3) o).rate_count;
         }else{

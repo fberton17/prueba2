@@ -12,13 +12,6 @@ public class Consulta1 implements Comparable{
     public int cantidad;
     public Book book;
 
-    private Consulta1(Book book){
-        this.book = book;
-        this.cantidad = 1;
-    }
-    private void addCantidad(){
-        this.cantidad += 1;
-    }
 
     public static void startConsulta1(Book[] books_array, User[] users_array) throws HeapSizeOverflow {
         long start = 0, stop = 0;
@@ -66,5 +59,13 @@ public class Consulta1 implements Comparable{
             return this.cantidad - ((Consulta1) o).cantidad;
         } else{return -1;}
 
+    }
+
+    private Consulta1(Book book){
+        this.book = book;
+        this.cantidad = 1;
+    }
+    private void addCantidad(){
+        this.cantidad += 1;
     }
 }

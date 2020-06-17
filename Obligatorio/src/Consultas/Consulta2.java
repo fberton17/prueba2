@@ -1,6 +1,7 @@
 package Consultas;
 
 import Clases.Book;
+import Clases.Rating;
 import Clases.User;
 import Heap.HeapImpl;
 import Heap.HeapSizeOverflow;
@@ -20,31 +21,35 @@ public class Consulta2 implements Comparable {
         this.cantidad += 1;
     }
 
-    public static void startConsulta2(Book[] books_array, User[] users_array) throws HeapSizeOverflow {
+    public static void startConsulta2(User[] users_array) throws HeapSizeOverflow {
         long start = 0, stop = 0;
         start = System.currentTimeMillis();
         Consulta2[] array_con2 = new Consulta2[10001];
         Book libro;
         Lista lista;
         Consulta2 datoConsulta;
+        Object[] ratings;
         int j;
         for (User usuario : users_array) {
             lista = usuario.getRatings();
             j = 0;
-            while (lista.get(j) != null) { //FIXME Cuando .get retorna null se pudre todo
-                libro = (Book) lista.get(j); //FIXME IMPLEMENTAR OPERADOR DIAMANTE EN LINKED LIST
-                if (array_con2[((int) libro.getBook_id()) - 1] == null) {
+            ratings = lista.toArray();
+            for(Object rating: ratings){
+                libro =((Rating) rating).getBook();
+                if(array_con2[((int)libro.getBook_id())-1] == null) {
                     datoConsulta = new Consulta2(libro);
-                    array_con2[((int) libro.getBook_id()) - 1] = datoConsulta;
-                } else {
-                    array_con2[((int) libro.getBook_id()) - 1].addCantidad();
+                    array_con2[((int)libro.getBook_id())-1] = datoConsulta;
+                }else{
+                    array_con2[((int)libro.getBook_id())-1].addCantidad();
                 }
-                j++;
             }
+
         }
         MaxHeap<Consulta2> heap = new HeapImpl(10000);
         for (Consulta2 dato : array_con2) {
-            heap.insert(dato);
+            if(dato != null) {
+                heap.insert(dato);
+            }
         }
         Consulta2 top;
         for (int e = 0; e <= 19; e++) {        // imprime en orden
