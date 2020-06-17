@@ -42,12 +42,12 @@ public class Consulta4 {
             }
         }
         System.out.println("Entrando al for");
-        for (int ind = 1; ind < idiomasleidos.length; ind++) {
-            if (idiomasleidos[ind].idioma != "no") {
+        for (int ind = 0; ind < (idiomasleidos.length); ind++) {
+            if (idiomasleidos[ind].idioma != "no") { //FIXME me da un NullPointer Exception y no entiendo porque
                 idiomasleidos[ind] = idiomcant[ind];
                 System.out.println("Adentro del if");
-                for (int h = (ind + 1); h < idiomasleidos.length; h++) {
-                    if (idiomasleidos[h].idioma == idiomasleidos[ind].idioma) { //FIXME me da un NullPointer Exception y no entiendo porque
+                for (int h = (ind + 1); h < (idiomasleidos.length - 1); h++) {
+                    if (idiomasleidos[h].idioma == idiomasleidos[ind].idioma) { 
                         idiomcant[ind].cantidadreservas++;
                         idiomasleidos[h].idioma = "no";
                     }
