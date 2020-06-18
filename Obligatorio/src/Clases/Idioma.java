@@ -3,7 +3,6 @@ package Clases;
 public class Idioma{
     public String idioma = "";
     public int cantidadreservas = 1;
-    public int codigoidioma;
 
     public Idioma(String idioma) {
         this.idioma = idioma;
@@ -13,11 +12,17 @@ public class Idioma{
         return idioma;
     }
 
-    public int getCodigoidioma() {
-        return codigoidioma;
+    public int getCantidadreservas() {
+        return cantidadreservas;
     }
 
-    public void addCantidad() {
-
+    public void setIdioma(String idioma) {
+        this.idioma = idioma;
     }
+
+    public void setCantidadreservas(int cantidadreservas) {
+        this.cantidadreservas = cantidadreservas;
+    }
+
+
 }
